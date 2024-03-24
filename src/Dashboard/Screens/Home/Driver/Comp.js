@@ -65,6 +65,8 @@ const Comp = ({ data, setData, interval }) => {
             <p>Destination: {data.to_location}</p>
             <p>Price: ₦{data.price.toLocaleString()}</p>
             <p>Date: {formattedDate}</p>
+            <p>Mobility Constrained: {data.mobility_constrained === true ? 'Yes':'No'}</p>
+
 
             {
                 load ?

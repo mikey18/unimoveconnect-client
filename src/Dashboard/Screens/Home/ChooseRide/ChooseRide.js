@@ -66,7 +66,8 @@ const ChooseRide = ({ active,
     ride_options, 
     date,
     setPage,
-    setprice_and_driver }) => {
+    setprice_and_driver,
+    mobility_constrained }) => {
     const back = () => {
         setPage((prev) => prev - 1)
     }
@@ -84,6 +85,7 @@ const ChooseRide = ({ active,
                     clas: ride_options.find(x => x.id === active).name,
                     seat: ride_options.find(x => x.id === active).seat,
                     bag: ride_options.find(x => x.id === active).bags,
+                    mobility_constrained: mobility_constrained
                 },
                 {
                     headers: {

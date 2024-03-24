@@ -15,6 +15,8 @@ const Home = () => {
     const [pick_up, setPickup] = useState('')
     const [drop_off, setDrop_off] = useState('')
     const [date, setDate] = useState(null)
+    const [mobility_constrained, setmobility_constrained] = useState(false)
+
 
     const [ride_options, setride_options] = useState(null)
     const [selected, setSelected] = useState(null)
@@ -38,6 +40,8 @@ const Home = () => {
                             setDate={setDate}
                             setPage={setPage}
                             setride_options={setride_options}
+                            mobility_constrained={mobility_constrained}
+                            setmobility_constrained={setmobility_constrained}
                         />}
                         {page === 2 && <ChooseRide
                             pick_up={pick_up}
@@ -50,6 +54,7 @@ const Home = () => {
                             setActive={setActive}
                             setprice_and_driver={setprice_and_driver}
                             date={date}
+                            mobility_constrained={mobility_constrained}
                         />}
                         {page === 3 && <Book
                             pick_up={pick_up}

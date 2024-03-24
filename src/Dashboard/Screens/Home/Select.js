@@ -33,6 +33,15 @@ const DIV = styled.div`
         color: #344054;
         font-size: 15px;
     }
+    .yy{
+        color: grey;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+    .yy:hover{
+        border: 1px solid #1098F7;
+    }
     .form-input:focus{
         outline: none !important;
     }
@@ -56,6 +65,36 @@ const DIV = styled.div`
     .date{
         cursor: pointer;
     }
+    .radio{
+        border: 2px solid #1098F7;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .rradio{
+        background-color: #1098F7;
+        border-radius: 20px;
+        width: 10px;
+        height: 10px;
+    }
+    .radio2{
+        border: 2px solid lightgrey;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .rradio2{
+        background-color: lightgrey;
+        border-radius: 20px;
+        width: 10px;
+        height: 10px;
+    }
 `
 const Select = ({
     pick_up,
@@ -65,7 +104,9 @@ const Select = ({
     date,
     setDate,
     setPage,
-    setride_options 
+    setride_options,
+    mobility_constrained,
+    setmobility_constrained
 }) => {
     const [load, setLoad] = useState(false)
     const [error, setError] = useState(null)
@@ -116,6 +157,20 @@ const Select = ({
                         minDate={minDate}
                         placeholderText="Date"
                     />
+
+                    <div className="form-input yy" onClick={() => setmobility_constrained((prev) => !prev)}>
+                        Mobility Constrained
+
+                        {mobility_constrained ?
+                        <div className="radio">
+                            <div className="rradio"/>
+                        </div>
+                        :
+                        <div className="radio2">
+                            <div className="rradio2"/>
+                        </div>
+                        }
+                    </div>
                 </div>
                 {error && <p>{error}</p>}
                 {

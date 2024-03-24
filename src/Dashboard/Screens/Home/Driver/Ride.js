@@ -140,6 +140,7 @@ const Ride = ({ data }) => {
                     <p className="head">Student Details</p>
                     <p className="p">Name: {data.user.firstname} {data.user.lastname}</p>
                     <p className="p">Matric Number: {data.user.matric_no}</p>
+                    <p className="p">Mobility Constrained: {data.mobility_constrained === true ? 'Yes':'No'}</p>
                 </div>
             </div>
         </DIV>
