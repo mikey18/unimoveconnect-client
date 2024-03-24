@@ -43,30 +43,37 @@ const Comp = ({ data, setData, interval }) => {
                 },
             )
             .then((res) => {
-                if(res.data.status === 200){
+                if (res.data.status === 200) {
                     clearInterval(interval.current)
                     setData(res.data.data)
                     setLoad(false)
                 }
             })
     }
-    return (  
+    const date = new Date(data.date);
+
+    const formattedDate = date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    });
+    return (
         <DIV>
             <p>Name: {data.firstname} {data.lastname}</p>
             <p>Matric Number: {data.matric_no}</p>
             <p>Pick up: {data.from_location}</p>
             <p>Destination: {data.to_location}</p>
-            <p>Price: {data.price}</p>
-            <p>Date: {data.date}</p>
+            <p>Price: ₦{data.price.toLocaleString()}</p>
+            <p>Date: {formattedDate}</p>
 
             {
                 load ?
-                <div className="accept">Loading..</div>
-                :
-                <div className="accept" onClick={mark}>Accept</div>
+                    <div className="accept">Loading..</div>
+                    :
+                    <div className="accept" onClick={mark}>Accept</div>
             }
         </DIV>
     );
 }
- 
+
 export default Comp;
